@@ -1,9 +1,9 @@
 version: 2
 
 sources:
-  - name: raw
-    schema: stackoverflow #Dataset name - BigQuery
-    tables:
+  - name: raw #nombre del prefijo bruto
+    schema: stackoverflow # Nombre del dataset
+    tables: # nombre de las tablas brutas
       - name: badges
       - name: posts_answers
       - name: posts_questions

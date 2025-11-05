@@ -19,7 +19,7 @@ models:
               values: ['answer']
       - name: owner_user_id
         tests:
-          - relationships:
+          - relationships: # verifica que en la tabla stg_users debe existir el campo user_id
               to: ref('stg_users')
               field: user_id
   - name: stg_posts_questions
