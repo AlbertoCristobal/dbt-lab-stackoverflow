@@ -8,3 +8,5 @@ where
     created_at < (select max(created_at) from {{ ref("stg_posts_questions") }})
 group by 1, 2
 order by 1, 2
+
+

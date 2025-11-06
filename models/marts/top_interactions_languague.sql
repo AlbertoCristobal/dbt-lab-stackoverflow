@@ -1,17 +1,16 @@
-with
-    tmp_query_clean as (
+with tmp_query_clean as (
         select *
         from
             (
                 select
                     post_id,
                     extract(year from created_at) year,
-                    split(tags, '|') tags,
+                    split(tags, '|') tags, -- Pasa a formato array las filas que tengan por ejemplo "a|b|c" las convierte en ["a","b","c"]
                     accepted_answer_id,
                     created_at
                 from {{ ref("stg_posts_questions") }}
             ),
-            unnest(tags) tag
+            unnest(tags) tag -- Crea una fila por cada tag, fila 1 --> a , fila 2 --> b...
         where accepted_answer_id is not null
     )
 

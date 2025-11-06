@@ -1,7 +1,6 @@
 {{ config(materialized="incremental") }} --cuando cree la ejecucion del modelo, si necesito nuevos datos, solo vuelca los nuevos , no todos
 
-with
-    source as (
+with source as (
         select
             id as user_id,
             age,
